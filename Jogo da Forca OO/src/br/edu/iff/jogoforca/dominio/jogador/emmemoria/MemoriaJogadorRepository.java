@@ -62,7 +62,7 @@ public class MemoriaJogadorRepository implements JogadorRepository {
 		if(!this.pool.contains(jogador)) {
 			throw new RuntimeException("Jogador não localizado");
 		}
-		this.pool.remove(jogador);
+		this.pool.remove(this.getPorId(jogador.getId()));
 		this.pool.add(jogador);
 	}
 

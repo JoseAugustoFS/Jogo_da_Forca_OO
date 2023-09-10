@@ -63,7 +63,7 @@ public class MemoriaRodadaRepository implements RodadaRepository {
 		if(!this.pool.contains(rodada)) {
 			throw new RuntimeException("Rodada não localizada");
 		}
-		this.pool.remove(rodada);
+		this.pool.remove(this.getPorId(rodada.getId()));
 		this.pool.add(rodada);
 	}
 

@@ -78,7 +78,7 @@ public class MemoriaPalavraRepository implements PalavraRepository {
 		if(!this.pool.contains(palavra)) {
 			throw new RuntimeException("Palavra não localizada");
 		}
-		this.pool.remove(palavra);
+		this.pool.remove(this.getPorId(palavra.getId()));
 		this.pool.add(palavra);
 	}
 

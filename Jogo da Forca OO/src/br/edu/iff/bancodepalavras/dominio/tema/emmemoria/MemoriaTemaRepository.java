@@ -67,7 +67,7 @@ public class MemoriaTemaRepository implements TemaRepository {
 		if(!this.pool.contains(tema)) {
 			throw new RuntimeException("Tema não localizado");
 		}
-		this.pool.remove(tema);
+		this.pool.remove(this.getPorId(tema.getId()));
 		this.pool.add(tema);
 	}
 

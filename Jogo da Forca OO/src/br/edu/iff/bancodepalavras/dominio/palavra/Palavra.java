@@ -22,14 +22,14 @@ public class Palavra extends ObjetoDominioImpl {
 		return letraFactory;
 	}
 	
-	public Palavra criar(long id, String palavra, Tema tema) {
+	public static Palavra criar(long id, String palavra, Tema tema) {
 		if(letraFactory==null) {
 			throw new RuntimeException("Deve inicializar o letraFactory primeiro");
 		}
 		return new Palavra(id, palavra, tema);
 	}
 	
-	public Palavra reconstruir(long id, String palavra, Tema tema) {
+	public static Palavra reconstruir(long id, String palavra, Tema tema) {
 		if(letraFactory==null) {
 			throw new RuntimeException("Deve inicializar o letraFactory primeiro");
 		}
