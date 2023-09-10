@@ -16,7 +16,7 @@ public class RodadaSorteioFactory extends RodadaFactoryImpl {
 
 	private static RodadaSorteioFactory soleInstance;
 	
-	public void createSoleInstance(RodadaRepository repository, TemaRepository temaRepository, PalavraRepository palavraRepository) {
+	public static void createSoleInstance(RodadaRepository repository, TemaRepository temaRepository, PalavraRepository palavraRepository) {
 		if(soleInstance==null) {
 			soleInstance = new RodadaSorteioFactory(repository, temaRepository, palavraRepository);
 		}

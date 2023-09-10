@@ -13,7 +13,7 @@ public class RodadaAppService {
 	
 	private static RodadaAppService soleInstance;
 	
-	public void createSoleInstance(RodadaRepository rodadaRepository, JogadorRepository jogadorRepository, RodadaFactory rodadaFactory) {
+	public static void createSoleInstance(RodadaRepository rodadaRepository, JogadorRepository jogadorRepository, RodadaFactory rodadaFactory) {
 		if(soleInstance==null) {
 			soleInstance = new RodadaAppService(rodadaRepository, jogadorRepository, rodadaFactory);
 		}

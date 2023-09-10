@@ -7,7 +7,7 @@ public class PalavraFactoryImpl extends EntityFactory implements PalavraFactory 
 
 	private static PalavraFactoryImpl soleInstance;
 	
-	public void createSoleInstance(PalavraRepository repository) {
+	public static void createSoleInstance(PalavraRepository repository) {
 		if(soleInstance==null) {
 			soleInstance = new PalavraFactoryImpl(repository);
 		}

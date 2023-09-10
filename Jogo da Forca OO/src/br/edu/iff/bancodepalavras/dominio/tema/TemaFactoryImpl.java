@@ -6,7 +6,7 @@ public class TemaFactoryImpl extends EntityFactory implements TemaFactory {
 
 	private static TemaFactoryImpl soleInstance;
 	
-	public void createSoleInstance(TemaRepository repository) {
+	public static void createSoleInstance(TemaRepository repository) {
 		if(soleInstance==null) {
 			soleInstance = new TemaFactoryImpl(repository);
 		}

@@ -6,7 +6,7 @@ public class JogadorFactoryImpl extends EntityFactory implements JogadorFactory 
 
 	private static JogadorFactoryImpl soleInstance;
 	
-	public void createSoleInstance(JogadorRepository repository) {
+	public static void createSoleInstance(JogadorRepository repository) {
 		if(soleInstance==null) {
 			soleInstance = new JogadorFactoryImpl(repository);
 		}
