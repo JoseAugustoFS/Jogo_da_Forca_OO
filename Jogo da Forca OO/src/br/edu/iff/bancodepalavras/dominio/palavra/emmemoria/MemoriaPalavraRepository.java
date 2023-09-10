@@ -21,7 +21,7 @@ public class MemoriaPalavraRepository implements PalavraRepository {
 	}
 	
 	private MemoriaPalavraRepository() {
-		
+		pool = new ArrayList<Palavra>();
 	}
 
 	@Override
@@ -67,8 +67,8 @@ public class MemoriaPalavraRepository implements PalavraRepository {
 
 	@Override
 	public void inserir(Palavra palavra) throws RepositoryException {
-		if(!this.pool.contains(palavra)) {
-			throw new RuntimeException("Palavra não localizada");
+		if(this.pool.contains(palavra)) {
+			throw new RepositoryException();
 		}
 		this.pool.add(palavra);
 	}
@@ -76,7 +76,7 @@ public class MemoriaPalavraRepository implements PalavraRepository {
 	@Override
 	public void atualizar(Palavra palavra) throws RepositoryException {
 		if(!this.pool.contains(palavra)) {
-			throw new RuntimeException("Palavra não localizada");
+			throw new RepositoryException();
 		}
 		this.pool.remove(this.getPorId(palavra.getId()));
 		this.pool.add(palavra);
@@ -85,7 +85,7 @@ public class MemoriaPalavraRepository implements PalavraRepository {
 	@Override
 	public void remover(Palavra palavra) throws RepositoryException {
 		if(!this.pool.contains(palavra)) {
-			throw new RuntimeException("Palavra não localizada");
+			throw new RepositoryException();
 		}
 		this.pool.remove(palavra);
 	}

@@ -112,6 +112,12 @@ public class Palavra extends ObjetoDominioImpl {
 		if(this.palavra==null) {
 			throw new RuntimeException("Deve inicializar a palavra primeiro");
 		}
+		if(palavra==null) {
+			return false;
+		}
+		if(this.getTamanho()!=palavra.length()) {
+			return false;
+		}
 		for(int posicaoAtual = 0; posicaoAtual<this.getTamanho(); posicaoAtual++) {
 			if(this.palavra[posicaoAtual].getCodigo()!=palavra.charAt(posicaoAtual)) {
 				return false;

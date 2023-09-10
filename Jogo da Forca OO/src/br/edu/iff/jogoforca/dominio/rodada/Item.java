@@ -12,17 +12,18 @@ public class Item extends ObjetoDominioImpl {
 	private boolean[] posicoesDescobertas;
 	private String palavraArriscada = null;
 	
-	Item criar(long id, Palavra palavra) {
+	static Item criar(long id, Palavra palavra) {
 		return new Item(id, palavra);
 	}
 	
-	public Item reconstruir(long id, Palavra palavra, boolean[] posicoesDescobertas, String palavraArriscada) {
+	public static Item reconstruir(long id, Palavra palavra, boolean[] posicoesDescobertas, String palavraArriscada) {
 		return new Item(id, palavra, posicoesDescobertas, palavraArriscada);
 	}
 	
 	private Item(long id, Palavra palavra) {
 		super(id);
 		this.palavra = palavra;
+		this.posicoesDescobertas = new boolean[this.palavra.getTamanho()];
 	}
 	
 	private Item(long id, Palavra palavra, boolean[] posicoesDescobertas, String palavraArriscada) {

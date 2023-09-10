@@ -66,7 +66,7 @@ public class Rodada extends ObjetoDominioImpl {
 	}
 
 	public static Rodada criar(long id, Palavra[] palavras, Jogador jogador) {
-		if(bonecoFactory==null) {
+		if(bonecoFactory==null) {System.out.println("TTT");
 			throw new RuntimeException("Deve inicializar o bonecoFactory antes");
 		}
 		return new Rodada(id, palavras, jogador);
@@ -83,7 +83,7 @@ public class Rodada extends ObjetoDominioImpl {
 		super(id);
 		this.itens = new Item[palavras.length];
 		for(int posicaoAtual = 0;posicaoAtual < palavras.length;posicaoAtual++) {
-			this.itens[posicaoAtual].criar(posicaoAtual,palavras[posicaoAtual]);
+			this.itens[posicaoAtual] = Item.criar(posicaoAtual,palavras[posicaoAtual]);
 		}
 		Tema temaTeste = this.itens[0].getPalavra().getTema();
 		for(Item item : this.itens) {
@@ -143,9 +143,11 @@ public class Rodada extends ObjetoDominioImpl {
 		boolean encontrou = false;
 		for(Item item : this.itens) {
 			if(item.tentar(codigo)&&!encontrou) {
-				this.erradas.add(this.itens[0].getPalavra().getLetraFactory().getLetra(codigo));
 				encontrou = true;
 			}
+		}
+		if(!encontrou){				
+			this.erradas.add(this.itens[0].getPalavra().getLetraFactory().getLetra(codigo));
 		}
 		if(this.encerrou()) {			
 			this.jogador.setPontuacao(this.jogador.getPontuacao()+this.calcularPontos());
@@ -167,6 +169,7 @@ public class Rodada extends ObjetoDominioImpl {
 	public void exibirItens(Object contexto) {
 		for(Item item : this.itens) {
 			item.exibir(contexto);
+			System.out.println();
 		}
 	}
 	
@@ -177,12 +180,14 @@ public class Rodada extends ObjetoDominioImpl {
 	public void exibirPalavras(Object contexto) {
 		for(Item item : this.itens) {
 			item.getPalavra().exibir(contexto);
+			System.out.println();
 		}
 	}
 	
 	public void exibirLetrasErradas(Object contexto) {
 		for(Letra letra : this.erradas) {
 			letra.exibir(contexto);
+			System.out.print(" ");
 		}
 	}
 	

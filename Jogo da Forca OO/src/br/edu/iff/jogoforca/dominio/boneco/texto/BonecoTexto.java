@@ -20,6 +20,9 @@ public class BonecoTexto implements Boneco {
 	@Override
 	public void exibir(Object contexto, int partes) {
 		switch(partes) {
+		case 0:
+			System.out.println(" ");
+			break;
 		case 1:
 			System.out.println("cabeça");
 			break;

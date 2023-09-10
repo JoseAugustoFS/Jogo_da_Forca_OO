@@ -20,7 +20,7 @@ public class MemoriaTemaRepository implements TemaRepository {
 	}
 	
 	private MemoriaTemaRepository() {
-		
+		pool = new ArrayList<Tema>();
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class MemoriaTemaRepository implements TemaRepository {
 
 	@Override
 	public void inserir(Tema tema) throws RepositoryException {
-		if(!this.pool.contains(tema)) {
-			throw new RuntimeException("Tema não localizado");
+		if(this.pool.contains(tema)) {
+			throw new RepositoryException();
 		}
 		this.pool.add(tema);
 	}
@@ -65,7 +65,7 @@ public class MemoriaTemaRepository implements TemaRepository {
 	@Override
 	public void atualizar(Tema tema) throws RepositoryException {
 		if(!this.pool.contains(tema)) {
-			throw new RuntimeException("Tema não localizado");
+			throw new RepositoryException();
 		}
 		this.pool.remove(this.getPorId(tema.getId()));
 		this.pool.add(tema);
@@ -74,7 +74,7 @@ public class MemoriaTemaRepository implements TemaRepository {
 	@Override
 	public void remover(Tema tema) throws RepositoryException {
 		if(!this.pool.contains(tema)) {
-			throw new RuntimeException("Tema não localizado");
+			throw new RepositoryException();
 		}
 		this.pool.remove(tema);
 	}

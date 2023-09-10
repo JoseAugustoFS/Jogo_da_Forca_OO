@@ -21,7 +21,7 @@ public class MemoriaRodadaRepository implements RodadaRepository {
 	}
 	
 	private MemoriaRodadaRepository() {
-		
+		pool = new ArrayList<Rodada>();
 	}
 
 	@Override
@@ -52,8 +52,8 @@ public class MemoriaRodadaRepository implements RodadaRepository {
 
 	@Override
 	public void inserir(Rodada rodada) throws RepositoryException {
-		if(!this.pool.contains(rodada)) {
-			throw new RuntimeException("Rodada não localizada");
+		if(this.pool.contains(rodada)) {
+			throw new RepositoryException();
 		}
 		this.pool.add(rodada);
 	}
@@ -61,7 +61,7 @@ public class MemoriaRodadaRepository implements RodadaRepository {
 	@Override
 	public void atualizar(Rodada rodada) throws RepositoryException {
 		if(!this.pool.contains(rodada)) {
-			throw new RuntimeException("Rodada não localizada");
+			throw new RepositoryException();
 		}
 		this.pool.remove(this.getPorId(rodada.getId()));
 		this.pool.add(rodada);
@@ -70,7 +70,7 @@ public class MemoriaRodadaRepository implements RodadaRepository {
 	@Override
 	public void remover(Rodada rodada) throws RepositoryException {
 		if(!this.pool.contains(rodada)) {
-			throw new RuntimeException("Rodada não localizada");
+			throw new RepositoryException();
 		}
 		this.pool.remove(rodada);
 	}

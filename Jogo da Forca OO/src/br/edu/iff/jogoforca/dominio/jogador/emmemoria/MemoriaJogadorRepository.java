@@ -20,7 +20,7 @@ public class MemoriaJogadorRepository implements JogadorRepository {
 	}
 	
 	private MemoriaJogadorRepository() {
-		
+		pool = new ArrayList<Jogador>();
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class MemoriaJogadorRepository implements JogadorRepository {
 
 	@Override
 	public void inserir(Jogador jogador) throws RepositoryException {
-		if(!this.pool.contains(jogador)) {
-			throw new RuntimeException("Jogador não localizado");
+		if(this.pool.contains(jogador)) {
+			throw new RepositoryException();
 		}
 		this.pool.add(jogador);
 	}
@@ -60,7 +60,7 @@ public class MemoriaJogadorRepository implements JogadorRepository {
 	@Override
 	public void atualizar(Jogador jogador) throws RepositoryException {
 		if(!this.pool.contains(jogador)) {
-			throw new RuntimeException("Jogador não localizado");
+			throw new RepositoryException();
 		}
 		this.pool.remove(this.getPorId(jogador.getId()));
 		this.pool.add(jogador);
@@ -69,7 +69,7 @@ public class MemoriaJogadorRepository implements JogadorRepository {
 	@Override
 	public void remover(Jogador jogador) throws RepositoryException {
 		if(!this.pool.contains(jogador)) {
-			throw new RuntimeException("Jogador não localizado");
+			throw new RepositoryException();
 		}
 		this.pool.remove(jogador);
 	}

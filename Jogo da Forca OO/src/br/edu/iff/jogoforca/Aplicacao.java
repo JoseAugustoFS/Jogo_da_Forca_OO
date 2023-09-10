@@ -59,7 +59,7 @@ public class Aplicacao {
 		return TIPOS_REPOSITORY_FACTORY;
 	}
 	
-	public void setTiposRepositoryFactory(String tipo) {
+	public void setTipoRepositoryFactory(String tipo) {
 		this.tipoRepositoryFactory = tipo;
 		this.configurar();
 	}
@@ -78,7 +78,7 @@ public class Aplicacao {
 		return TIPOS_ELEMENTO_GRAFICO_FACTORY;
 	}
 	
-	public void setTiposElementoGraficoFactory(String tipo) {
+	public void setTipoElementoGraficoFactory(String tipo) {
 		this.tipoElementoGraficoFactory = tipo;
 		this.configurar();
 	}
@@ -105,7 +105,7 @@ public class Aplicacao {
 		return TIPOS_RODADA_FACTORY;
 	}
 	
-	public void setTiposRodadaFactory(String tipo) {
+	public void setTipoRodadaFactory(String tipo) {
 		this.tipoRodadaFactory = tipo;
 		this.configurar();
 	}
