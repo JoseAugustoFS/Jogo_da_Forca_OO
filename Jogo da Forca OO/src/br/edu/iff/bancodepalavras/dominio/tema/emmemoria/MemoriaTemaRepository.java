@@ -64,11 +64,7 @@ public class MemoriaTemaRepository implements TemaRepository {
 
 	@Override
 	public void atualizar(Tema tema) throws RepositoryException {
-		if(!this.pool.contains(tema)) {
-			throw new RepositoryException();
-		}
-		this.pool.remove(this.getPorId(tema.getId()));
-		this.pool.add(tema);
+		
 	}
 
 	@Override

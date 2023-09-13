@@ -75,11 +75,7 @@ public class MemoriaPalavraRepository implements PalavraRepository {
 
 	@Override
 	public void atualizar(Palavra palavra) throws RepositoryException {
-		if(!this.pool.contains(palavra)) {
-			throw new RepositoryException();
-		}
-		this.pool.remove(this.getPorId(palavra.getId()));
-		this.pool.add(palavra);
+		
 	}
 
 	@Override

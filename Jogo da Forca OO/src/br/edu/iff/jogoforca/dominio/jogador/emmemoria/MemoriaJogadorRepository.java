@@ -59,11 +59,7 @@ public class MemoriaJogadorRepository implements JogadorRepository {
 
 	@Override
 	public void atualizar(Jogador jogador) throws RepositoryException {
-		if(!this.pool.contains(jogador)) {
-			throw new RepositoryException();
-		}
-		this.pool.remove(this.getPorId(jogador.getId()));
-		this.pool.add(jogador);
+		
 	}
 
 	@Override

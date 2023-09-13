@@ -14,6 +14,9 @@ public class PalavraFactoryImpl extends EntityFactory implements PalavraFactory 
 	}
 	
 	public static PalavraFactoryImpl getSoleInstance() {
+		if(soleInstance==null) {
+			throw new RuntimeException("Precisa chamar o createSoleInstance primeiro.");
+		}
 		return soleInstance;
 	}
 	
