@@ -237,11 +237,11 @@ public class Rodada extends ObjetoDominioImpl {
 	
 	public boolean descobriu() {
 		for(Item item : this.itens) {
-			if(item.descobriu()) {
-				return true;
+			if(!item.descobriu()) {
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	public boolean arriscou() {

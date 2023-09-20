@@ -4,7 +4,7 @@ import br.edu.iff.repository.Repository;
 
 public abstract class EntityFactory {
 
-	private Repository repository;
+	protected Repository repository;
 	
 	protected EntityFactory(Repository repository) {
 		this.repository = repository;

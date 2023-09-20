@@ -16,7 +16,7 @@ public class Item extends ObjetoDominioImpl {
 		return new Item(id, palavra);
 	}
 	
-	public static Item reconstruir(long id, Palavra palavra, boolean[] posicoesDescobertas, String palavraArriscada) {
+	public static Item reconstruir(long id, Palavra palavra, int[] posicoesDescobertas, String palavraArriscada) {
 		return new Item(id, palavra, posicoesDescobertas, palavraArriscada);
 	}
 	
@@ -26,10 +26,13 @@ public class Item extends ObjetoDominioImpl {
 		this.posicoesDescobertas = new boolean[this.palavra.getTamanho()];
 	}
 	
-	private Item(long id, Palavra palavra, boolean[] posicoesDescobertas, String palavraArriscada) {
+	private Item(long id, Palavra palavra, int[] posicoesDescobertas, String palavraArriscada) {
 		super(id);
 		this.palavra = palavra;
-		this.posicoesDescobertas = posicoesDescobertas;
+		this.posicoesDescobertas = new boolean[this.palavra.getTamanho()];
+		for(Integer posicao : posicoesDescobertas) {
+			this.posicoesDescobertas[posicao] = true;
+		}
 		this.palavraArriscada = palavraArriscada;
 	}
 

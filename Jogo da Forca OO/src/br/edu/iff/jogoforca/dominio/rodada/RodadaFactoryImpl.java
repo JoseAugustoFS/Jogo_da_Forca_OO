@@ -6,21 +6,19 @@ import br.edu.iff.factory.EntityFactory;
 
 public abstract class RodadaFactoryImpl extends EntityFactory implements RodadaFactory {
 
-	private RodadaRepository rodadaRepository;
 	private TemaRepository temaRepository;
 	private PalavraRepository palavraRepository;
-	
+
 	protected RodadaFactoryImpl(RodadaRepository repository, TemaRepository temaRepository, PalavraRepository palavraRepository) {
 		super(repository);
-		this.rodadaRepository = repository;
 		this.temaRepository = temaRepository;
 		this.palavraRepository = palavraRepository;
 	}
 
 	public RodadaRepository getRodadaRepository() {
-		return this.rodadaRepository;
+		return (RodadaRepository) this.getRepository();
 	}
-	
+
 	public TemaRepository getTemaRepository() {
 		return this.temaRepository;
 	}
@@ -28,5 +26,5 @@ public abstract class RodadaFactoryImpl extends EntityFactory implements RodadaF
 	public PalavraRepository getPalavraRepository() {
 		return this.palavraRepository;
 	}
-	
+
 }

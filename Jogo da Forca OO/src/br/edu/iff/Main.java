@@ -41,7 +41,7 @@ public class Main {
 		Scanner entrada = new Scanner(System.in);
 		
 		System.out.println("Informe seu nome: ");
-        String nomeJogador = "Teste";//entrada.nextLine();
+        String nomeJogador = entrada.nextLine();
         System.out.println();
         
         Aplicacao.getSoleInstance().getRepositoryFactory().getJogadorRepository().inserir(Aplicacao.getSoleInstance().getJogadorFactory().getJogador(nomeJogador));
