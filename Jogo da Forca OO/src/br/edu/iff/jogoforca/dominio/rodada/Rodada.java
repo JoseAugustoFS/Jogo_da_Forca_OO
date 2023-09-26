@@ -197,7 +197,7 @@ public class Rodada extends ObjetoDominioImpl {
 		for(;letraAtual<this.getCertas().length;letraAtual++) {
 			tentativas[letraAtual] = this.getCertas()[letraAtual];
 		}
-		for(;letraAtual<this.getErradas().length;letraAtual++) {
+		for(;letraAtual<tentativas.length;letraAtual++) {
 			tentativas[letraAtual] = this.getErradas()[letraAtual];
 		}
 		return tentativas;
