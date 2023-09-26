@@ -66,7 +66,7 @@ public class Rodada extends ObjetoDominioImpl {
 	}
 
 	public static Rodada criar(long id, Palavra[] palavras, Jogador jogador) {
-		if(bonecoFactory==null) {System.out.println("TTT");
+		if(bonecoFactory==null) {
 			throw new RuntimeException("Deve inicializar o bonecoFactory antes");
 		}
 		return new Rodada(id, palavras, jogador);
@@ -135,7 +135,7 @@ public class Rodada extends ObjetoDominioImpl {
 
 	public void tentar(char codigo) {
 		if(this.encerrou()) {
-			throw new RuntimeException("Não pode tentar depois que o jogo encerrou");
+			throw new RuntimeException("NÃ£o pode tentar depois que o jogo encerrou");
 		}
 		if (this.getNumPalavras() == 0) {
 			throw new RuntimeException("Deve ter pelo menos um item");
@@ -156,7 +156,7 @@ public class Rodada extends ObjetoDominioImpl {
 
 	public void arriscar(String[] palavras) {
 		if(this.encerrou()) {
-			throw new RuntimeException("Não pode tentar depois que o jogo encerrou");
+			throw new RuntimeException("NÃ£o pode tentar depois que o jogo encerrou");
 		}
 		for(int palavraAtual = 0; palavraAtual < this.getNumPalavras(); palavraAtual++) {
 			this.itens[palavraAtual].arriscar(palavras[palavraAtual]);
