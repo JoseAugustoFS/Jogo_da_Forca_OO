@@ -246,11 +246,11 @@ public class Rodada extends ObjetoDominioImpl {
 	
 	public boolean arriscou() {
 		for(Item item : this.itens) {
-			if(item.arriscou()) {
-				return true;
+			if(!item.arriscou()) {
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	public int getQtdeTentativasRestantes() {
